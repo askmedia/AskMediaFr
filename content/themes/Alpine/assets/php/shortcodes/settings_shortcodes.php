@@ -1785,7 +1785,7 @@ if (!function_exists('news')) {
                     $enclosure = $item->get_enclosure();
 
                     if( $enclosure ) {
-                       echo '<a href="'.$item->get_permalink().'" class="zoom" target="_blank"><img src="'.$enclosure->get_link().'" class="img-responsive" width="500" ></a>';
+                       echo '<a href="'.$item->get_permalink().'" class="zoom" target="_blank"><img src="'.get_template_directory_uri().'/assets/images/bg.png" data-src="'.$enclosure->get_link().'" class="img-responsive" width="500" ></a>';
                     }
                     echo '<div class="post-text">
                       <p class="lead">'.$item->get_description() .'</p>
