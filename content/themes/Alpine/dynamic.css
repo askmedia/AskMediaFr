@@ -1,0 +1,151 @@
+/* BEGIN dynamic_css */
+a, 
+.section-title h1 i, 
+.contact-content h1 i, 
+.pricing-box li h1, 
+.circular-pie span, 
+.circ_counter_desc .lead, 
+.slide-content h1 strong, 
+.timeline-content #timeline .post-body .blog-title h1 a:hover, 
+.service-items a:hover, 
+.service-items a:hover h3, 
+.form-group label.error, 
+.blog-content a:hover, 
+.panel-group .panel-heading a, 
+.panel-group .panel-heading a:hover, 
+.media .media-body .lead,
+.social-link span,
+.parallax-background-color-content .mybutton2 a, 
+.parallax-background-color-content .mybutton2 button,
+.parallax-background-color-content .mybutton a span, 
+.parallax-background-color-content .mybutton button span,
+.parallax-background-color-content .hi-icon:hover,
+#wp-calendar caption,
+.widget_recent_comments a,
+.widget a abbr,
+.widget a:hover,
+.widget_rss a,
+.widget_rss cite,
+#wp-calendar #prev:hover,
+#wp-calendar #next:hover{ color:#d40c0c; }
+
+.nav-tabs > li > a, 
+.form-group .form-control.error, 
+.form-group .form-control.error:focus { border-color: #d40c0c;}
+
+.call-number, 
+.pager .pagination li a:hover, 
+.pricing-box .pricing-featured li.price-row, 
+.comment-pagination a:hover, 
+.pager .puls a:hover, 
+.pager ul li a:hover, 
+.content-box a:hover, 
+.comment-respond form p.form-submit input:hover, 
+.progress .progress-bar, 
+.section-title .lead strong, 
+.parallax-background-color, 
+.hi-icon-effect-1 .hi-icon, 
+.no-touch .hi-icon-effect-1 .hi-icon:hover, 
+.mybutton a span, 
+.mybutton button span, 
+.csstransforms3d .mybutton a:hover span::before, 
+.csstransforms3d .mybutton button:hover span::before, 
+.csstransforms3d .mybutton a span::before, 
+.csstransforms3d .mybutton button span::before, 
+.mybutton2 a,
+.mybutton2 button,
+.nav-tabs > li > a,
+#wp-calendar tbody td a,
+.post-tags a:hover{ background-color:#d40c0c; }
+
+.hi-icon-effect-1 .hi-icon:after { box-shadow: 0 0 0 4px #d40c0c;}
+
+/* MENU */
+#navigation{ background:#3b3939;} /* [1] */
+.navbar .navbar-nav > li > a { color: #bdbbbb;} /* [2] */
+.navbar .navbar-nav > li > a:focus, .navbar .navbar-nav > li > a:hover { color: #ffffff;} /* [3] */
+.navbar .navbar-nav > .current-menu-item > a, 
+.navbar .navbar-nav > .current-menu-item > a:hover, 
+.navbar .navbar-nav > .current-menu-item > a:focus,
+.navbar .navbar-nav > .current-menu-ancestor > a,
+.navbar .navbar-nav > .current-menu-ancestor > a:hover, 
+.navbar .navbar-nav > .current-menu-ancestor > a:focus,
+.navbar .navbar-nav > .current-menu-parent > a,
+.navbar .navbar-nav > .current-menu-parent > a:hover, 
+.navbar .navbar-nav > .current-menu-parent > a:focus{ color: #222222; background: #ffffff;} /* [4 - 5] */
+.navbar-default .navbar-toggle{color: #ffffff;} /* [5] */
+.navbar .navbar-nav ul{ background:#ffffff;} /* [6] */
+.navbar .navbar-nav .sub-menu li a{ color:#999999;} /* [7] */
+.navbar .navbar-nav .sub-menu > li > a:hover, .sub-menu > li > a:focus{ color:#222222;} /* [8] */
+.navbar .navbar-nav .sub-menu .current-menu-ancestor > a,
+.navbar .navbar-nav .sub-menu .current-menu-ancestor > a:hover,
+.navbar .navbar-nav .sub-menu .current-menu-ancestor > a:focus,
+.navbar .navbar-nav .sub-menu .current-menu-parent > a,
+.navbar .navbar-nav .sub-menu .current-menu-parent > a:hover,
+.navbar .navbar-nav .sub-menu .current-menu-parent > a:focus,
+.navbar .navbar-nav .sub-menu .current-menu-item > a,
+.navbar .navbar-nav .sub-menu .current-menu-item > a:hover,
+.navbar .navbar-nav .sub-menu .current-menu-item > a:focus{ background:#ffffff; color:#222222;} /* [9 - 10] */
+
+@media (max-width: 767px) {
+  .navbar .navbar-nav .sub-menu li a{ color: #bdbbbb;} /* [2] */
+  .navbar .navbar-nav .sub-menu > li > a:hover, .sub-menu > li > a:focus{ color: #ffffff;} /* [3] */
+  .navbar .navbar-nav .sub-menu .current-menu-ancestor > a,
+  .navbar .navbar-nav .sub-menu .current-menu-ancestor > a:hover,
+  .navbar .navbar-nav .sub-menu .current-menu-ancestor > a:focus,
+  .navbar .navbar-nav .sub-menu .current-menu-parent > a,
+  .navbar .navbar-nav .sub-menu .current-menu-parent > a:hover,
+  .navbar .navbar-nav .sub-menu .current-menu-parent > a:focus,
+  .navbar .navbar-nav .sub-menu .current-menu-item > a,
+  .navbar .navbar-nav .sub-menu .current-menu-item > a:hover,
+  .navbar .navbar-nav .sub-menu .current-menu-item > a:focus{ color:#222222; background:none;} /* [4] */
+  .navbar-default .navbar-collapse, .navbar-default .navbar-form,
+  .navbar .navbar-nav > li { border-color: #bdbbbb;} /* [4] */
+}
+
+.navbar-nav {
+font-family: Helvetica, Arial, sans-serif;  
+} 
+
+.section-content,
+.section-content .lead,
+.section-title div span,
+.parallax .circ_counter_desc p,
+.parallax .circ_counter_desc p.lead,
+.parallax .circular-pie span,
+.team-item .team-element .team-inner .team-detail .team-content{
+
+}
+
+h1,
+.section-title h1,
+.parallax h1,
+.parallax .number-counters strong{
+
+}
+
+h2,
+.section-title h2,
+.parallax h2 {
+
+}
+
+h3,
+.section-title h3,
+.parallax h3,
+.team-item .team-element .team-inner .team-detail .team-content h3 {
+
+}
+
+h4 {
+
+}
+
+h5 {
+
+}
+
+h6 {
+
+}
+/* END dynamic_css */
