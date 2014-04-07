@@ -37,7 +37,7 @@ sitemap*
 *.scssc
 _design/**/*.psd
 /*.project
-/_sql/*.sql
+/_sql/
 
 nginx.conf
 

@@ -17,7 +17,7 @@ define('WP_POST_REVISIONS', false );
 define('EMPTY_TRASH_DAYS', 0 );
 
 define( 'WP_LOCAL_DEV', false );
-define( 'DB_NAME', 'wordpress' );
+define( 'DB_NAME', 'askmediafr' );
 define( 'DB_USER', 'root' );
 define( 'DB_PASSWORD', '' );
 define( 'DB_HOST', 'localhost' ); // Probably 'localhost'
