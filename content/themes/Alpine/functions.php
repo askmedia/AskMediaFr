@@ -5,7 +5,7 @@
  * @package Alpine
  */
 
- global $wp_version;  
+ global $wp_version;
 
 define('EF1_FUNCTIONS', get_template_directory()  . '/assets/php');
 define('EF1_INDEX_JS', get_template_directory_uri()  . '/assets/js/');
@@ -29,23 +29,23 @@ load_template( trailingslashit( get_template_directory() ) . 'assets/php/meta-bo
 
 // Optional: set 'ot_show_pages' filter to false. This will hide the settings & documentation pages.
 add_filter( 'ot_show_pages', '__return_false' );
-add_filter( 'ot_show_new_layout', '__return_false' ); 
+add_filter( 'ot_show_new_layout', '__return_false' );
 
 // Required: set 'ot_theme_mode' filter to true. -----------------------------
-add_filter( 'ot_theme_mode', '__return_true' ); 
+add_filter( 'ot_theme_mode', '__return_true' );
 
 // <head> options ---------------------------------------------------------------
 require_once ('assets/php/options-head.php');
 
 // TGM Plugin ---------------------------------------------------------------
-require_once ('assets/php/tgm/tgm.php');	
+require_once ('assets/php/tgm/tgm.php');
 
 // Pagination ---------------------------------------------------------------
-require_once ('assets/php/pagination.php');		
+require_once ('assets/php/pagination.php');
 
 // Comment ---------------------------------------------------------------
 require_once ('assets/php/comment.php');
-	
+
 register_nav_menu( 'primary', 'Main Menu' );
 
 function ef1_first_class(){
@@ -58,31 +58,31 @@ function ef1_first_class(){
 	'order'            => 'DESC',
 	'include'          => '',
 	'exclude'          => '',
-	'meta_key'         => '', 
+	'meta_key'         => '',
 	'meta_value'       => '',
 	'post_type'        => 'onepage',
 	'post_mime_type'   => '',
 	'post_parent'      => '',
 	'post_status'      => 'publish',
 	'suppress_filters' => true );
-	
-  $posts_array = get_posts( $args_onepage );
-  $first_class = 0; 
 
-  $first_class  = '#'.sanitize_title($posts_array[0]->post_name ); 
+  $posts_array = get_posts( $args_onepage );
+  $first_class = 0;
+
+  $first_class  = '#'.sanitize_title($posts_array[0]->post_name );
 	return $first_class;
 }
 
 // Theme localization
 load_theme_textdomain( 'alpine', get_template_directory().'/assets/php/options/languages');
 
-add_theme_support('post-formats',array('gallery','video') );  
+add_theme_support('post-formats',array('gallery','video') );
 
 //add feed
-add_theme_support( 'automatic-feed-links' ); 
+add_theme_support( 'automatic-feed-links' );
 
-//add thumb 
-add_theme_support( 'post-thumbnails' ); 
+//add thumb
+add_theme_support( 'post-thumbnails' );
 
 // Thumb image size type
 add_image_size( 'testimonial-thumb', 250, 250, true ); // Testimonial Shorcode
@@ -107,13 +107,13 @@ add_action( 'widgets_init', 'alpine_widgets_init' );
 
 if ( ! isset( $content_width ) ) $content_width = 900;
 
-// excerpt lenght 
+// excerpt lenght
 function ef1_custom_excerpt_length( $length ) {
-	if(is_home() )return 25; 
+	if(is_home() )return 25;
 	else return 50;
 }
 add_filter( 'excerpt_length', 'ef1_custom_excerpt_length', 999 );
-// end excerpt lenght 
+// end excerpt lenght
 
 /* =============================================================================
 	Include the Option-Tree Google Fonts Plugin
@@ -123,7 +123,7 @@ add_filter( 'excerpt_length', 'ef1_custom_excerpt_length', 999 );
 if( class_exists( 'OT_Loader' ) ):
   global $ot_options;
   $ot_options = get_option( 'option_tree' );
-  
+
   // default fonts used in this theme, even though there are no google fonts
   $default_theme_fonts = array(
 		'arial' => 'Arial, Helvetica, sans-serif',
@@ -155,7 +155,7 @@ if( class_exists( 'OT_Loader' ) ):
         $font_array[$index] = $value['family'];
 			}
 		}
-    
+
     // put both arrays together
 		$array = array_merge(unserialize(OT_FONT_DEFAULTS), $font_array);
     return $array;
@@ -168,8 +168,8 @@ function single_page_nav_links( $items ) {
   foreach ( $items as $item ) {
     if('onepage' == $item->object){
       $current_post = get_post($item->object_id);
-      $menu_title = "#".sanitize_title($current_post->post_title); 
-        if(!is_home()){ 
+      $menu_title = "#".sanitize_title($current_post->post_title);
+        if(!is_home()){
           $item->url = home_url( '/' ).$menu_title;
         }else{
           $item->url = $menu_title;
@@ -180,12 +180,12 @@ function single_page_nav_links( $items ) {
       }
     }
   }
-  return $items;   
+  return $items;
 }
 
 function ef1_parallax(){
-	$ef1_section_query = new WP_Query( array( 'post_type' => 'onepage', 'posts_per_page' => -1 )); 
-	if($ef1_section_query->have_posts()):  
+	$ef1_section_query = new WP_Query( array( 'post_type' => 'onepage', 'posts_per_page' => -1 ));
+	if($ef1_section_query->have_posts()):
 		$script_return = '';
 			$script_return .= "\t".'jQuery(".home_parallax").parallax("50%", "0.4");'."\n";
 		while($ef1_section_query->have_posts()) : $ef1_section_query->the_post();
@@ -205,3 +205,4 @@ function ef1_parallax(){
 	endif;
 }
 add_action('wp_footer','ef1_parallax',100);
+

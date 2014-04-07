@@ -290,7 +290,7 @@ table th {
 }
 .navbar-default .navbar-brand{
   color:#fff;
-  font-weight:200;  
+  font-weight:200;
 }
 .navbar-default .navbar-brand img{ display:inline; vertical-align:middle;}
 
@@ -756,7 +756,7 @@ div.mc-image {
   padding: 0 3px;
 }
 #project-navigation ul li a{
-  cursor:pointer; 
+  cursor:pointer;
 }
 .project-media, .project-description {
   margin: 70px 0 0 0;
@@ -981,6 +981,12 @@ div.mc-image {
 
 .timeline-content #timeline .post-body .post-text .lead{
   font-size:18px;
+}
+
+
+.timeline-content #timeline .post-body .zoom {
+  height: 210px;
+  overflow: hidden;
 }
 
 .timeline-content #timeline .post-body a {
@@ -1544,7 +1550,7 @@ footer .social-icon a:hover {
   float: left;
   margin: 0 20px 10px 0;
 }
-.comment-list .comment-respond{ 
+.comment-list .comment-respond{
   margin-bottom:55px;
 }
 .comment-respond{
@@ -2085,5 +2091,5 @@ footer .social-icon a:hover {
   font-weight:600;
 }
 .fa-short i{
-  color:#222; 
+  color:#222;
 }

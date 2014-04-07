@@ -1747,18 +1747,20 @@ if (!function_exists('news')) {
     'category' => '',
       ), $atts));
 
-    wp_reset_query();
-    wp_reset_postdata();
-     $args = array( 'posts_per_page' => $number_posts, 'category' => $category );
-    global $post;
-    $myposts = get_posts( $args );
+    $rss = fetch_feed('http://askmedia.fr/blog/feed/');
+
+    $rss_items = $rss->get_items( 0, $number_posts );
+
+    if ( is_wp_error( $rss ) )
+      return;
+
 
     echo '<div class="container">
             <div class="timeline-content">
               <div class="element-line">
                 <ol id="timeline">';
 
-    foreach ( $myposts as $post ) : setup_postdata( $post );
+    foreach ( $rss_items as $item ) :
 
        STATIC $i = 0;
        $i++;
@@ -1772,49 +1774,21 @@ if (!function_exists('news')) {
               <div class="'.$class.'">
                 <div class="well post">
                   <div class="post-info text-center">
-                    <h5 class="info-date">'. get_the_time('j F Y').'<small>'. get_the_time('G:i').'</small></h5>
-                    <!-- <a href="'.get_permalink().'" class="box-inner rotate">'.get_avatar( get_the_author_meta( 'ID' ), 113).'</a> -->
-                    <h5>'.get_the_author_meta('nickname').'</h5>
+                    <h5 class="info-date">'. $item->get_date('j F Y').'<small>'. $item->get_date('G:i').'</small></h5>
+                    <h5>'.$item->get_author()->get_name().'</h5>
                   </div>
                   <div class="post-body clearfix">
                     <div class="blog-title">
-                      <h1><a href="'.get_permalink().'">'.get_the_title().'</a></h1>
+                      <h1><a href="'.$item->get_permalink() .'" target="_blank">'.$item->get_title().'</a></h1>
                     </div>';
 
-                    $args = array(
-                    'numberposts' => -1, // Using -1 loads all posts
-                    'orderby' => 'menu_order', // This ensures images are in the order set in the page media manager
-                    'order'=> 'ASC',
-                    'post_mime_type' => 'image', // Make sure it doesn't pull other resources, like videos
-                    'post_parent' => $post->ID, // Important part - ensures the associated images are loaded
-                    'post_status' => null,
-                    'post_type' => 'attachment'
-                    );
+                    $enclosure = $item->get_enclosure();
 
-                    $images = get_children( $args );
-
-                    if( !has_post_format( 'video' ) &&! has_post_format( 'gallery' )  ) {
-                      if ( has_post_thumbnail() ) {
-                       echo '<a href="'.get_permalink().'" class="zoom">'.get_the_post_thumbnail(get_the_ID(),'news-image', array('class' => 'img-responsive') ).'</a>';
-                      }
-
+                    if( $enclosure ) {
+                       echo '<a href="'.$item->get_permalink().'" class="zoom" target="_blank"><img src="'.$enclosure->get_link().'" class="img-responsive" width="500" ></a>';
                     }
-                    elseif($images && has_post_format( 'gallery' )){
-                      echo '<div class="owl-single owl-carousel">';
-                      foreach($images as $image){
-                        echo '<div><a href="'.get_permalink().'" class="zoom">'.wp_get_attachment_image($image->ID, 'news-image').'</a></div>';
-                      }
-                      echo '</div>';
-                    }
-                    elseif( has_post_format( 'video' ) ) {
-                      $video = get_post_meta( $post->ID, '_format_video_embed', true );
-                      echo '<div>'.$video.'</div>';
-                    }
-
-
-
                     echo '<div class="post-text">
-                      <p class="lead">'.get_the_excerpt() .'</p>
+                      <p class="lead">'.$item->get_description() .'</p>
                     </div>
                   </div>
                   <div class="post-arrow"></div>
