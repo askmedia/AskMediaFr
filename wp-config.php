@@ -9,7 +9,7 @@ define('WP_CACHE', true); // Added by W3 Total Cache
 define('WPCF7_LOAD_CSS', false);
 
 // MAHI-MAHI THUMBNAILS
-define('MAHI_THUMBNAILS', true);
+// define('MAHI_THUMBNAILS', true);
 
 // ===================================================
 // Load database info and local development parameters
