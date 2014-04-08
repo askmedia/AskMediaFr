@@ -83,7 +83,11 @@ jQuery(window).load(function() {
 
 jQuery(document).ready(function() {
 
-  jQuery("img").unveil();
+  jQuery("img").unveil(200, function() {
+    jQuery(this).load(function() {
+      container.isotope('reLayout');
+    });
+  });
 
   jQuery(".owl-single").owlCarousel({
     navigation: false,
