@@ -1188,6 +1188,7 @@ if (!function_exists('team')) {
       $job = get_post_meta( get_the_ID(),'job',true );
       $animation = get_post_meta( get_the_ID(),'animation_type',true );
       $image = get_the_post_thumbnail(get_the_ID(),'team-image', array('class' => 'img-responsive') );
+      $image = preg_replace("# src=\"#", ' src="'.get_template_directory_uri().'/assets/images/bg.png" data-src="', $image);
 
       if($image != ''):
       echo '<div class="col-md-3 col-sm-3 col-md-3 col-xs-12 team-item">
@@ -1251,9 +1252,11 @@ if (!function_exists('clients')) {
         $image = get_post_meta( get_the_ID(),'image',true );
         $url_client = get_post_meta( get_the_ID(),'url_client',true );
 
+        $bg = get_template_directory_uri().'/assets/images/bg.png';
+
         $myclient = <<<RETURN
         <div class="item">
-          <a href="{$url_client}" class="zoom" target="_blank"> <img class="client-logo img-responsive" src="{$image}" alt=""> </a>
+          <a href="{$url_client}" class="zoom" target="_blank"> <img class="client-logo img-responsive" src="{$bg}" data-src="{$image}" alt=""> </a>
         </div>
 RETURN;
 
@@ -1423,7 +1426,7 @@ if (!function_exists('portfolio')) {
 
             echo '<div class="portfolio">
                     <a class="zoom">';
-                      echo get_the_post_thumbnail(get_the_ID(),'portfolio-thumb');
+                      echo preg_replace("# src=\"#", ' src="'.get_template_directory_uri().'/assets/images/bg.png" data-src="', get_the_post_thumbnail(get_the_ID(),'portfolio-thumb'));
                       echo '<div class="hover-items">
                         <span>
                           <i class="fa '.$class_awesome.' fa-4x"></i>

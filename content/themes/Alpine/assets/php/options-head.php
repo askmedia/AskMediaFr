@@ -87,9 +87,9 @@ function ef1_alpine_scripts() {
   wp_enqueue_script( 'portfolio-custom', EF1_INDEX_JS.'portfolio_custom.js', array('jquery'), '1.0.0', true);
   wp_enqueue_script( 'jquery.bxslider.min', EF1_INDEX_JS.'jquery.bxslider.min.js', array('jquery'), '1.0.0', true);
   wp_enqueue_script( 'owl.carousel', EF1_INDEX_JS.'owl.carousel.min.js', array('jquery'), '1.0.0', true);
-  wp_enqueue_script( 'script', EF1_INDEX_JS.'script.js', array('jquery'), '1.0.0', true);
+  wp_enqueue_script( 'unveil', EF1_INDEX_JS.'jquery.unveil.js', array('jquery'), '1.0.0', true);
+  wp_enqueue_script( 'script', EF1_INDEX_JS.'script.js', array('jquery', 'unveil'), '1.0.0', true);
 
-  wp_enqueue_script( 'unveil', EF1_INDEX_JS.'unveil.js', array('jquery'), '1.0.0', true);
 
 }
 add_action( 'wp_enqueue_scripts', 'ef1_alpine_scripts' );
